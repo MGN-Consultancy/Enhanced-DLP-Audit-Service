@@ -1,0 +1,43 @@
+{
+  "version": "2.0.2",
+  "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/releases/enhanced_audit_service_2.0.2.exe",
+  "releaseDate": "2025-10-01",
+  "critical": false,
+  "releaseNotes": [
+    "Implemented intelligent Event ID tracking with 30-day lookback for new IDs",
+    "Fixed USB device registry persistence with Base64 encoding",
+    "Reduced USB monitoring log noise and optimized scan frequency",
+    "Added comprehensive self-update system with automatic version checking",
+    "Enhanced duplicate prevention for Event Log entries",
+    "Improved error handling and logging throughout the service"
+  ],
+  "changelog": {
+    "added": [
+      "Self-update system with automatic version checking",
+      "Intelligent Event ID tracking and duplicate prevention",
+      "Base64 encoding for registry data to prevent corruption"
+    ],
+    "fixed": [
+      "USB device persistence issues on service restart",
+      "JSON corruption in Windows Registry storage",
+      "Excessive logging noise from USB monitoring"
+    ],
+    "improved": [
+      "Event Log scanning with smart lookback periods",
+      "Error handling and recovery mechanisms",
+      "Service startup and shutdown procedures"
+    ]
+  },
+  "requirements": {
+    "windows": "Windows 10/2016 Server or later",
+    "powershell": "5.1 or later",
+    "dotnet": "Not required - compiled executable",
+    "privileges": "Administrator rights for service management"
+  },
+  "updateInstructions": [
+    "Service will automatically check for updates on startup",
+    "Critical updates will be applied automatically",
+    "Non-critical updates require manual approval or service restart",
+    "Backup of current version is automatically created before update"
+  ]
+}
