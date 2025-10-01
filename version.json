@@ -1,15 +1,15 @@
 {
-  "version": "2.0.4",
-  "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/enhanced_audit_service_2.0.4.exe",
+  "version": "2.0.7",
+  "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/enhanced_audit_service.exe",
   "releaseDate": "2025-10-01",
   "critical": true,
   "releaseNotes": [
-    "CRITICAL FIX: Automatic service updates without manual elevation required",
-    "CRITICAL FIX: Batch file updater system inherits service privileges",
-    "CRITICAL FIX: Registry fallback for NSSM service configuration updates",
-    "Enhanced error handling and retry logic for service updates",
-    "Improved updater reliability with multiple update methods",
-    "Fully automated background updates without user intervention"
+    "MAJOR IMPROVEMENT: Generic filename system - no more NSSM configuration changes",
+    "MAJOR IMPROVEMENT: Registry-based version tracking instead of filename parsing",
+    "MAJOR IMPROVEMENT: Dynamic backup detection of actual running executable",
+    "CRITICAL FIX: Eliminates service configuration corruption during updates",
+    "Enhanced reliability - service always points to same filename",
+    "Enterprise-grade update system with proper backup and rollback"
   ],
   "changelog": {
     "added": [
