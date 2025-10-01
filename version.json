@@ -2,7 +2,7 @@
   "version": "2.0.2",
   "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/releases/enhanced_audit_service_2.0.2.exe",
   "releaseDate": "2025-10-01",
-  "critical": false,
+  "critical": true,
   "releaseNotes": [
     "Implemented intelligent Event ID tracking with 30-day lookback for new IDs",
     "Fixed USB device registry persistence with Base64 encoding",
