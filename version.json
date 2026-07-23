@@ -1,5 +1,5 @@
 {
-  "version": "2.0.15",
+  "version": "2.0.17",
   "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/enhanced_audit_service.exe",
   "releaseDate": "2026-07-08",
   "critical": true,
@@ -14,7 +14,8 @@
     "Expanded original filename correlation across recursive user profile folders and removable drives",
     "Improved OneDrive upload correlation using explicit OneDrive roots and deeper folder scanning",
     "Portal DLP reporting now aggregates USB insert, file activity, and removal into single USB session incidents",
-    "Windows event-log collection now suppresses service/window-manager principals and uses cleaner interactive logon/logoff summaries"
+    "Windows event-log collection now suppresses service/window-manager principals and uses cleaner interactive logon/logoff summaries",
+    "DLP collection now ignores zero-byte temp file noise and scores USB copies plus multi-file upload activity as high risk"
   ],
   "changelog": {
     "fixed": [
@@ -26,7 +27,8 @@
       "Temporary browser upload files now attempt to correlate to the likely original user file",
       "Browser temporary upload correlation now scans recent files in nested profile folders and removable drives with bounded limits",
       "OneDrive business and consumer roots are now included directly when matching browser temporary upload files",
-      "Noisy Windows audit principals such as DWM, UMFD, NT SERVICE, machine accounts, and SYSTEM are suppressed before upload"
+      "Noisy Windows audit principals such as DWM, UMFD, NT SERVICE, machine accounts, and SYSTEM are suppressed before upload",
+      "Zero-byte email, web, and temporary file access records are ignored before upload"
     ],
     "added": [
       "Node fs.watch USB file monitoring",
@@ -42,7 +44,8 @@
       "Better original filename matching for Outlook Web and browser upload events that stage files as .tmp",
       "Better source-file matching when attachments are selected from nested OneDrive folders",
       "Release aligned with DLP report filtering and USB session aggregation changes",
-      "Windows audit summaries are shorter and user-focused; 4647 is preferred for user-initiated logoff reporting"
+      "Windows audit summaries are shorter and user-focused; 4647 is preferred for user-initiated logoff reporting",
+      "USB file copy events are treated as high-risk data movement, with oversized transfers marked critical"
     ]
   },
   "requirements": {
