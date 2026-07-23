@@ -1,5 +1,5 @@
 {
-  "version": "2.0.10",
+  "version": "2.0.11",
   "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/enhanced_audit_service.exe",
   "releaseDate": "2026-07-08",
   "critical": true,
@@ -9,7 +9,8 @@
     "Added overlap guards for recurring scans and health checks",
     "Fixed installer update path to preserve existing SQL registry settings",
     "Fixed DLP configuration parsing so disabled monitor flags are respected",
-    "Fixed web upload and Outlook webmail scanning when the service runs as LocalSystem"
+    "Fixed web upload and Outlook webmail scanning when the service runs as LocalSystem",
+    "Added likely original filename correlation for browser temporary upload files"
   ],
   "changelog": {
     "fixed": [
@@ -17,7 +18,8 @@
       "Service startup retry no longer stacks duplicate monitor intervals",
       "DLP configuration booleans now preserve false/0 values",
       "Installer update no longer clears SQL registry settings when SQL parameters are omitted",
-      "Web upload scanning now enumerates real user profiles instead of the LocalSystem profile"
+      "Web upload scanning now enumerates real user profiles instead of the LocalSystem profile",
+      "Temporary browser upload files now attempt to correlate to the likely original user file"
     ],
     "added": [
       "Node fs.watch USB file monitoring",
