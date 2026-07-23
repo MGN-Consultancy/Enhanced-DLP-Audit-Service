@@ -1,5 +1,5 @@
 {
-  "version": "2.0.11",
+  "version": "2.0.14",
   "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/enhanced_audit_service.exe",
   "releaseDate": "2026-07-08",
   "critical": true,
@@ -10,7 +10,10 @@
     "Fixed installer update path to preserve existing SQL registry settings",
     "Fixed DLP configuration parsing so disabled monitor flags are respected",
     "Fixed web upload and Outlook webmail scanning when the service runs as LocalSystem",
-    "Added likely original filename correlation for browser temporary upload files"
+    "Added likely original filename correlation for browser temporary upload files",
+    "Expanded original filename correlation across recursive user profile folders and removable drives",
+    "Improved OneDrive upload correlation using explicit OneDrive roots and deeper folder scanning",
+    "Portal DLP reporting now aggregates USB insert, file activity, and removal into single USB session incidents"
   ],
   "changelog": {
     "fixed": [
@@ -19,7 +22,9 @@
       "DLP configuration booleans now preserve false/0 values",
       "Installer update no longer clears SQL registry settings when SQL parameters are omitted",
       "Web upload scanning now enumerates real user profiles instead of the LocalSystem profile",
-      "Temporary browser upload files now attempt to correlate to the likely original user file"
+      "Temporary browser upload files now attempt to correlate to the likely original user file",
+      "Browser temporary upload correlation now scans recent files in nested profile folders and removable drives with bounded limits",
+      "OneDrive business and consumer roots are now included directly when matching browser temporary upload files"
     ],
     "added": [
       "Node fs.watch USB file monitoring",
@@ -31,7 +36,10 @@
       "Timeout and overlap handling for recurring process-based scans",
       "Shutdown cleanup for tracked monitor intervals and child processes",
       "Release manifest aligned with installer root executable URL",
-      "Possible web upload classification when an email browser is active and recent user files are detected"
+      "Possible web upload classification when an email browser is active and recent user files are detected",
+      "Better original filename matching for Outlook Web and browser upload events that stage files as .tmp",
+      "Better source-file matching when attachments are selected from nested OneDrive folders",
+      "Release aligned with DLP report filtering and USB session aggregation changes"
     ]
   },
   "requirements": {
