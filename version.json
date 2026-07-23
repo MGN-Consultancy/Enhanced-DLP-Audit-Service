@@ -1,31 +1,35 @@
 {
-  "version": "2.0.8",
+  "version": "2.0.10",
   "downloadUrl": "https://raw.githubusercontent.com/MGN-Consultancy/Enhanced-DLP-Audit-Service/main/enhanced_audit_service.exe",
-  "releaseDate": "2025-10-01",
+  "releaseDate": "2026-07-08",
   "critical": true,
   "releaseNotes": [
-    "MAJOR IMPROVEMENT: Generic filename system - no more NSSM configuration changes",
-    "MAJOR IMPROVEMENT: Registry-based version tracking instead of filename parsing",
-    "MAJOR IMPROVEMENT: Dynamic backup detection of actual running executable",
-    "CRITICAL FIX: Eliminates service configuration corruption during updates",
-    "Enhanced reliability - service always points to same filename",
-    "Enterprise-grade update system with proper backup and rollback"
+    "CRITICAL FIX: Removed persistent per-USB PowerShell FileSystemWatcher processes",
+    "Added bounded Node-based USB file monitoring with polling fallback",
+    "Added overlap guards for recurring scans and health checks",
+    "Fixed installer update path to preserve existing SQL registry settings",
+    "Fixed DLP configuration parsing so disabled monitor flags are respected",
+    "Fixed web upload and Outlook webmail scanning when the service runs as LocalSystem"
   ],
   "changelog": {
-    "added": [
-      "Self-update system with automatic version checking",
-      "Intelligent Event ID tracking and duplicate prevention",
-      "Base64 encoding for registry data to prevent corruption"
-    ],
     "fixed": [
-      "USB device persistence issues on service restart",
-      "JSON corruption in Windows Registry storage",
-      "Excessive logging noise from USB monitoring"
+      "Persistent USB PowerShell watcher sessions replaced with Node file watchers",
+      "Service startup retry no longer stacks duplicate monitor intervals",
+      "DLP configuration booleans now preserve false/0 values",
+      "Installer update no longer clears SQL registry settings when SQL parameters are omitted",
+      "Web upload scanning now enumerates real user profiles instead of the LocalSystem profile"
+    ],
+    "added": [
+      "Node fs.watch USB file monitoring",
+      "Polling fallback for USB file monitoring",
+      "Tracked child processes for email/web PowerShell scans",
+      "Profile-aware Downloads/Desktop/Documents/temp scanning for browser upload detection"
     ],
     "improved": [
-      "Event Log scanning with smart lookback periods",
-      "Error handling and recovery mechanisms",
-      "Service startup and shutdown procedures"
+      "Timeout and overlap handling for recurring process-based scans",
+      "Shutdown cleanup for tracked monitor intervals and child processes",
+      "Release manifest aligned with installer root executable URL",
+      "Possible web upload classification when an email browser is active and recent user files are detected"
     ]
   },
   "requirements": {
@@ -35,9 +39,8 @@
     "privileges": "Administrator rights for service management"
   },
   "updateInstructions": [
-    "Service will automatically check for updates on startup",
-    "Critical updates will be applied automatically",
-    "Non-critical updates require manual approval or service restart",
-    "Backup of current version is automatically created before update"
+    "Run Install-EnhancedDLPService.ps1 -Update as Administrator",
+    "Existing SQL registry settings are preserved when update parameters are omitted",
+    "Critical updates are published by replacing enhanced_audit_service.exe and version.json in the release repository"
   ]
 }
